@@ -1,0 +1,93 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, p, li, table {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    color: #555555; 
+    font-size: 36px;
+    margin-bottom: 30px; /* Adds a 30px margin below the h1 element */
+}
+
+h2 {
+    color: #555555; 
+    font-size: 28px;
+    margin-bottom: 30px; /* Adds a 30px margin below the h2 element */
+}
+
+ul {
+    border: 2px solid #005b12; 
+    width: 300px; 
+    margin: 0 auto 30px auto; /* Centers the list on the page */
+    padding: 10px; 
+    list-style-position: inside; /* Keeps list items inside the border */
+}
+
+.food-container {
+    display: flex; /* Aligns the image and text side by side */
+    align-items: center; /* Vertically centers the image and text */
+    margin-bottom: 30px; 
+}
+
+.food-image {
+    background-image: url('photos/sharon-chen-L1ZhjK-R6uc-unsplash.jpg');
+    background-size: cover; /* Makes sure the image covers the entire div */
+    background-position: center; /* Centers the image in the div */
+    width: 200px; /* Container width */
+    height: 200px; /* Container height */
+    margin-right: 15px; /* Adds space between the image and the text */
+}
+
+.food-text {
+    flex: 1; /* Makes the text div take up the remaining space */
+    font-size: 16px; /* Adjust the text size */
+}
+
+.book-table tr:nth-child(even) {
+    background-color: #b2d8b2; 
+}
+
+.book-table tr:nth-child(odd) {
+    background-color: #f4a460;
+}
+
+form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+form td {
+    padding: 10px;
+}
+
+form label {
+    text-align: right; /*All labels should be right aligned. */
+    display: inline-block;
+    width: 100%;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.social-icons {
+    position: fixed;
+    top: 100px; /* 100px from the top of the page */
+    right: 35px; /* 35px from the right edge of the page */
+    z-index: 1000; /* Ensure the icons are on top of other content */
+}
+
+.social-icons a {
+    display: block;
+    margin-bottom: 10px; /* Adds space between the icons */
+}
+
+.social-icons img, .social-icons i {
+    width: 30px; 
+    height: 30px;
+}
