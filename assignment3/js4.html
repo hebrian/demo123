@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem 4: Order Numbers</title>
+    <script>
+        function displayNumbers() {
+            // Get the start of the range
+            let start = prompt("Enter the start of the range:");
+            start = parseInt(start);
+            
+            // Get the end of the range
+            let end = prompt("Enter the end of the range:");
+            end = parseInt(end);
+
+            // Check if the input values are valid
+            if (isNaN(start) || isNaN(end)) {
+                document.getElementById("output").innerText = "Invalid input. Please enter valid numbers.";
+                return; // Exit if inputs are invalid
+            }
+
+            // Make sure range is valid, else swap the values
+            if (start > end) {
+                let temp = start;
+                start = end;
+                end = temp;
+            }
+
+            let sum = 0;
+            let oddNumbers = "";
+
+            // Loop through the range and display the odd numbers
+            for (let i = start; i <= end; i++) {
+                sum += i;
+                if (i % 2 !== 0) {
+                    oddNumbers += i + " ";
+                }
+            }
+
+            // Display the sum and odd numbers
+            document.getElementById("oddNumbers").innerText = "Odd numbers in range: " + oddNumbers;
+            document.getElementById("output").innerText = "The sum of the numbers in the range is: " + sum;
+        }
+    </script>
+</head>
+<body onload="displayNumbers()">
+    <h1>Thanks for trying out the range outputter</h1>
+    <p id="oddNumbers"></p>
+    <p id="output"></p>
+</body>
+</html>

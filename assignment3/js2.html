@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem 2: Temperature Conversion</title>
+    <script>
+        function convertTemperature() {
+            // Convert Fahrenheit input to Celsius
+            let fahrenheit = prompt("Enter a temperature in Fahrenheit (int or float only):");
+            fahrenheit = parseFloat(fahrenheit); // Ensure it's a number
+            let celsius = (fahrenheit - 32) * (5 / 9); // Convert to Celsius
+            alert(fahrenheit + "°F is " + celsius.toFixed(2) + "°C");
+
+            // Convert Celsius input to Fahrenheit
+            let celsiusInput = prompt("Enter a temperature in Celsius (int or float only):");
+            celsiusInput = parseFloat(celsiusInput); // Ensure it's a number
+            let fahrenheitResult = (celsiusInput * (9 / 5)) + 32; // Convert to Fahrenheit
+            alert(celsiusInput + "°C is equal to " + fahrenheitResult.toFixed(2) + "°F");
+        }
+    </script>
+</head>
+<body onload="convertTemperature()">
+    <h1>Thanks for trying out the temperature converter</h1>
+</body>
+</html>

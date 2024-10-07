@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem 5: Times Table</title>
+    <script>
+        function timesTable(number) {
+            let result = "";
+
+            // Make times table 1 to 12 for the given number
+            for (let i = 1; i<=12; i++) {
+                result += number + " x " + i + " = " + (i * number) + "<br>";
+            }
+
+            //Display result in output div
+            document.getElementById("output").innerHTML += result;
+        }
+
+        // Use function on 3,7, and 11
+        function displayTables() {
+            timesTable(3);
+            document.getElementById("output").innerHTML += "<br>"; // Add a line break
+            timesTable(7);
+            document.getElementById("output").innerHTML += "<br>"; // Add a line break
+            timesTable(11); // don't add a line break
+        }
+    </script>
+</head>
+<body onload="displayTables()">
+    <h1>Thanks for trying out the times table</h1>
+    <div id="output"></div>
+</body>
+</html>

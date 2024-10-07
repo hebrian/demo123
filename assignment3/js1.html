@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Problem 1 Name</title>
+        <script>
+            function displayInfo() {
+                // Ask for the first name
+                let firstName = prompt("Enter your first name:");
+                // Ask for the last name
+                let lastName = prompt("Enter your last name:");
+                
+                // Display full name in a popup
+                alert("Your name is " + firstName + " " + lastName);
+                
+                // Ask for the number of children
+                let numChildren = prompt("How many children do you have? (Please enter a positive number ie. 2)");
+                numChildren = parseInt(numChildren); // Convert the input to a number
+                
+                // Decide what message to display based on the number of children
+                let message = "";
+                if (isNaN(numChildren) || numChildren < 0) {
+                    message = "Number of children entered is invalid.";
+                } else if (numChildren === 0) {
+                    message = "You have no children.";
+                } else if (numChildren === 1) {
+                    message = "You have 1 child.";
+                } else {
+                    message = "You have " + numChildren + " children.";
+                }
+                
+                // Display the message on the page
+                document.getElementById("childrenInfo").innerText = message;
+            }
+        </script>
+    </head>
+    <body onload="displayInfo()">
+        <h1>Here is the user provided information</h1>
+        <p id="childrenInfo"></p>
+    </body>
+</html>

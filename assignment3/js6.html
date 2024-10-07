@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem 6: Count</title>
+    <script>
+        function count(array, value) {
+            let result = 0;
+
+            // Loop through array
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] < value) {
+                    result++;
+                }
+            }
+            return result;
+        }
+
+        function testCount() {
+            // Hard code an array and value example
+            let nums = [2, 4, 6, 8, 10];
+            let value = 5;
+
+            //Call the count function
+            let result = count(nums, value);
+
+            // Display the result
+            document.getElementById("input").innerText = "The array is: " + nums + "\n The value is " + value;
+            document.getElementById("output").innerText = "The number of values less than " + value + " is: " + result;
+        }
+    </script>
+</head>
+<body onload="testCount()">
+    <h1>Thanks for trying out the count function</h1>
+    <div id="input"></div>
+    <div id="output"></div>
+</body>
+</html>

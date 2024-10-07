@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem 3: Sort Numbers</title>
+    <script>
+        function sortNumbers() {
+            // Get input 1 from the user
+            let number1 = prompt("Please give a number (float or int):");
+            number1 = parseFloat(number1); 
+            let number2 = prompt("Please give another number (float or int):");
+            number2 = parseFloat(number2); 
+            // Stop if we get NaN values
+            if (isNaN(number1) || isNaN(number2)) {
+                alert("Invalid input. Please enter a number.");
+                return;
+            }
+            // Print the ordering
+            if (number1 < number2) {
+                alert("The order is: " + number1 + ", " + number2);
+            } else if (number1 > number2) {
+                alert("The order is: " + number2 + ", " + number1);
+            } else {
+                alert(number1 + " is equal to " + number2);
+            }
+            
+        }
+    </script>
+</head>
+<body onload="sortNumbers()">
+    <h1>Thanks for trying out the number sorter</h1>
+</body>
+</html>
