@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Problem 1: Word Counter</title>
+    <script>
+        function countWords() {
+            // Get sentence
+            const sentence = prompt("Enter a sentence:");
+
+            // Split the sentence into word array
+            const words = sentence.split(" ");
+
+            // Get the number of words
+            const wordCount = words.length;
+
+            // Display word count
+            alert("The number of words in the sentence is: " + wordCount);
+
+             // Display the word count on the body
+             document.getElementById("result").innerText = "Your sentence: " + sentence + 
+                                                          "\nThe number of words in the sentence is: " + wordCount;
+        }
+    </script>
+</head>
+<body onload="countWords()">
+    <h1>Word Counter</h1>
+    <p id="result">The result will be shown here after you input the sentence.</p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Problem 2: Numbered Names</title>
+    <script>
+        function displayNames() {
+            // Names string
+            const namesString = "Juan, Miguel, Rafael, Kentavious, Jermaine, Abdul, Rida, Shruti, Aisha"
+
+            // Split the string into an array of names
+            const namesArray = namesString.split(", ");
+
+            // Use map() to create a numbered list
+            const numberedList = namesArray.map((name, index) => {
+                return (index + 1) + ". " + name; // Add 1 to index to start numbering from 1
+            }).join("<br>");
+
+            // Display the numbered list on the body
+            document.getElementById("nameList").innerHTML = numberedList;
+        }
+    </script>
+</head>
+<body onload="displayNames()">
+    <h1>Numbered Names</h1>
+    <p id="nameList">The list will be shown below:</p>
+</body>
+</html>

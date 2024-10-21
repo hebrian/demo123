@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Problem 4: Button Text as Greeting</title>
+    <script>
+        // Function to greet the user based on the button clicked
+        function speak(event) {
+            // Get the button text (the greeting prefix)
+            const prefix = event.target.innerText;
+
+            // Get the user's name from the input box
+            const userName = document.getElementById("userName").value;
+
+            if (userName) {
+                alert(prefix + " " + userName);
+            } else {
+                alert("Enter a name");
+            }
+        }
+
+        // Assign event handlers to buttons when page loads
+        window.onload = function() {
+            // Get all the buttons
+            const helloButton = document.getElementById("helloButton");
+            const goodbyeButton = document.getElementById("goodbyeButton");
+            const greetingsButton = document.getElementById("greetingsButton");
+
+            // Add the event listeners
+            helloButton.onclick = speak;
+            goodbyeButton.onclick = speak;
+            greetingsButton.onclick = speak;
+        };
+    </script>
+</head>
+<body>
+    <h1>Greeting Form</h1>
+
+    <!-- Form to get the user's name -->
+    <form>
+        <label for="userName">Enter your name:</label>
+        <input type="text" id="userName" name="userName" placeholder="Your name">
+        <br><br>
+        <!-- Buttons to use speak function with their text -->
+        <button type="button" id="helloButton">Hello</button>
+        <button type="button" id="goodbyeButton">Good Bye</button>
+        <button type="button" id="greetingsButton">Greetings</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Problem 5: States</title>
+    <style>
+        #selectedStates {
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 10px;
+            width: 200px;
+            height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+    <script>
+        // List of states
+        const statesArray = [
+            "California",
+            "Texas",
+            "Florida",
+            "New York",
+            "Pennsylvania",
+            "Illinois",
+            "Ohio",
+            "Georgia",
+            "North Carolina",
+            "Michigan",
+            "New Jersey",
+            "Virginia",
+            "Washington",
+            "Arizona",
+            "Massachusetts"
+        ];
+
+        // Function to populate the select list with state options
+        function createStateList() {
+            const stateSelect = document.getElementById("stateSelect");
+
+            // Add each state as an option in the select element
+            statesArray.forEach((state, index) => {
+                const option = document.createElement("option");
+                option.value = state;
+                option.text = state;
+                stateSelect.appendChild(option);
+            });
+
+            // Set the default selected option to the first state
+            stateSelect.selectedIndex = 0;
+        }
+
+        // Function to add the selected state to the div
+        function addState() {
+            const stateSelect = document.getElementById("stateSelect");
+            const selectedState = stateSelect.value;
+
+            const selectedStatesDiv = document.getElementById("selectedStates");
+            selectedStatesDiv.innerHTML += selectedState + "<br>";
+        }
+
+        // Function to clear the states from the div
+        function clearStates() {
+            const selectedStatesDiv = document.getElementById("selectedStates");
+            selectedStatesDiv.innerHTML = "";  // Clear the content
+        }
+
+        // Call createStateList when the window loads
+        window.onload = createStateList;
+    </script>
+</head>
+<body>
+
+    <h1>Add States</h1>
+
+    <!-- Select element to display a list of states -->
+    <label for="stateSelect">Select a state:</label>
+    <br>
+    <select id="stateSelect" size="10">
+        <!-- Options will be added here -->
+    </select>
+    <br><br>
+
+    <!-- Button to add the selected state to the div -->
+    <button type="button" onclick="addState()">Add State</button>
+    <br><br>
+
+    <p>Selected states:</p>
+
+    <!-- Div to display the selected states -->
+    <div id="selectedStates"></div>
+    <br>
+
+    <!-- Button to clear the states from the div -->
+    <button type="button" onclick="clearStates()">Clear States</button>
+
+</body>
+</html>
