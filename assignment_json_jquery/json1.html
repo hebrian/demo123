@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Song List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>Song List</h1>
+
+<pre id="jsonDisplay"></pre>
+
+<script>
+    // JSON object with song list
+    const songList = [
+        {
+            "title": "Enchanted",
+            "artist": "Taylor Swift",
+            "year": 2010,
+            "genre": ["Pop", "Country"]
+        },
+        {
+            "title": "Me Porto Bonito",
+            "artist": "Bad Bunny",
+            "year": 2021,
+            "genre": ["Reggaeton"]
+        },
+        {
+            "title": "Hello",
+            "artist": "Adele",
+            "year": 2015,
+            "genre": ["Pop", "Soul"]
+        },
+        {
+            "title": "Boulevard of Broken Dreams",
+            "artist": "Green Day",
+            "year": 2004,
+            "genre": ["Rock"]
+        },
+        {
+            "title": "Billie Jean",
+            "artist": "Michael Jackson",
+            "year": 1983,
+            "genre": ["Pop"]
+        },
+        {
+            "title": "Calm Down",
+            "artist": "Reema",
+            "year": 2021,
+            "genre": ["Reggaeton"]
+        },
+        {
+            "title": "Run This Town",
+            "artist": "Jay-Z",
+            "year": 2009,
+            "genre": ["Hip Hop"]
+        },
+        {
+            "title": "Party in the U.S.A.",
+            "artist": "Miley Cyrus",
+            "year": 2009,
+            "genre": ["Pop"]
+        },
+        {
+            "title": "Riptide",
+            "artist": "Vance Joy",
+            "year": 2013,
+            "genre": ["Indie Pop"]
+        },
+        {
+            "title": "La vie en rose",
+            "artist": "Édith Piaf",
+            "year": 1945,
+            "genre": ["Chanson"]
+        }
+    ];
+
+    // Convert the song list to a string and display it
+    const songListString = JSON.stringify(songList, null, 4);
+    $("#jsonDisplay").text(songListString);
+</script>
+
+</body>
+</html>

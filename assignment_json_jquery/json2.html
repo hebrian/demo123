@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Song List from JSON</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #songList {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .song {
+            margin-bottom: 15px;
+        }
+        .title {
+            font-weight: bold;
+        }
+        .details {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Song List from JSON</h1>
+<div id="songList"></div>
+
+<script>
+    // Fetch songs.json and display its contents
+    $.get("songs.json", function(data) {
+        // Store JSON data in a variable
+        const songList = data;
+        
+        // Get the div where the song list will be displayed
+        const songListDiv = $("#songList");
+
+        // Loop through each song in the list
+        songList.forEach(song => {
+            const songHtml = `
+                <div class="song">
+                    <div class="title">${song.title}</div>
+                    <div class="details">
+                        <span><strong>Artist:</strong> ${song.artist}</span><br>
+                        <span><strong>Genre:</strong> ${song.genre.join(", ")}</span><br>
+                        <span><strong>Released:</strong> ${song.year}</span>
+                    </div>
+                </div>
+            `;
+            // Append the HTML for each song to the song list div
+            songListDiv.append(songHtml);
+        });
+    });
+</script>
+
+</body>
+</html>

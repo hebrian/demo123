@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Songs by Genre</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #filteredTitles {
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .songTitle {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Songs by Genre</h1>
+
+<form id="genreForm">
+    <label for="genreDropdown">Select Genre:</label>
+    <select id="genreDropdown">
+        <!-- Options will be populated dynamically -->
+    </select>
+    <button type="button" id="applyFilter">Filter</button>
+</form>
+
+<div id="filteredTitles"></div>
+
+<script>
+    // Variable to hold the song data
+    let allSongs = [];
+
+    $.get("songs.json", function(data) {
+        // Store the JSON data
+        allSongs = data;
+
+        // Extract unique genres from the song data
+        const genreSet = new Set();
+        allSongs.forEach(song => {
+            song.genre.forEach(genre => genreSet.add(genre));
+        });
+        const uniqueGenres = Array.from(genreSet);
+
+        // Populate the genre dropdown with unique genres
+        const genreDropdown = $("#genreDropdown");
+        uniqueGenres.forEach(genre => {
+            genreDropdown.append(new Option(genre, genre));
+        });
+    });
+
+    // Event listener for the Filter button
+    $("#applyFilter").on("click", function() {
+        const selectedGenre = $("#genreDropdown").val();
+
+        // Filter songs based on the selected genre
+        const matchingSongs = allSongs.filter(song => song.genre.includes(selectedGenre));
+
+        // Display the titles of matching songs
+        const titlesContainer = $("#filteredTitles");
+        // Clear previous results
+        titlesContainer.empty();  
+
+        matchingSongs.forEach(song => {
+            titlesContainer.append(`<div class="songTitle">${song.title}</div>`);
+        });
+    });
+</script>
+
+</body>
+</html>
