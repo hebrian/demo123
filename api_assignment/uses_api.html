@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Trivia Question</title>
+</head>
+<body>
+    <h1>Random Trivia Questions</h1>
+    <!--Add the source link https://opentdb.com/-->
+    <p>Source: <a href="https://opentdb.com/">Open Trivia Database</a></p>
+    <div id="triviaDisplay">Click the button to get a random trivia question</div>
+    <button onclick="fetchTrivia()">New Trivia Question</button>
+
+    <script>
+        function fetchTrivia() {
+            fetch('https://opentdb.com/api.php?amount=1') // Fetch a random trivia question
+                .then(response => response.json()) // Parse the JSON response
+                .then(data => {
+                    // Extract the question and the correct answer from the data
+                    const questionData = data.results[0];
+                    const question = questionData.question;
+                    const correctAnswer = questionData.correct_answer;
+
+                    // Display the question and answer
+                    document.getElementById('triviaDisplay').innerHTML = `
+                        <p>Question: ${question}</p>
+                        <p>Answer: ${correctAnswer}</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error fetching trivia question:', error);
+                    document.getElementById('triviaDisplay').innerText = 'Could not get trivia question. Please try again. Sometimes there are too many requests';
+                });
+        }
+    </script>
+</body>
+</html>
